@@ -1,3 +1,4 @@
+// See https://gist.github.com/donnut/fd56232da58d25ceecf1#gistcomment-1367885
 export interface CurriedFunction2<T1, T2, R> {
     (fn: T1): (data: T2) => R;
     (fn: T1, data: T2): R;
