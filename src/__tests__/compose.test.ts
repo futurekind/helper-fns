@@ -1,6 +1,7 @@
 import compose from '../compose';
 import map from '../map';
 import filter from '../filter';
+import sort from '../sort';
 
 describe('compose', () => {
     it('composes functions', () => {
@@ -12,12 +13,16 @@ describe('compose', () => {
 
         const isOld = x => x.age > 20;
         const plainName = x => x.name;
+        const sortByAgeDesc = (a: { age: number }, b: { age: number }) => {
+            if (a.age < b.age) return 1;
+            return 0;
+        };
 
         const resuls = compose(
-            [map(plainName), filter(isOld)],
+            [map(plainName), filter(isOld), sort(sortByAgeDesc)],
             data
         );
 
-        expect(resuls).toEqual(['Max', 'John']);
+        expect(resuls).toEqual(['John', 'Max']);
     });
 });
