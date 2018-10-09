@@ -4,7 +4,6 @@ describe('map', () => {
     it('maps array', () => {
         const double = x => x * 2;
         const m = map(double, [1, 2, 3]);
-
         expect(m).toEqual([2, 4, 6]);
     });
 

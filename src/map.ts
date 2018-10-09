@@ -1,8 +1,9 @@
-import curry from './utils/curry';
+import { curry2 } from './utils/curry';
 import isObj from './utils/isObj';
 
-const mapArray = <T>(mapper: (val: T, index: number) => T) => (arr: T[]): T[] =>
-    arr.map(mapper);
+const mapArray = (mapper: (val: any, index?: number) => any) => (
+    arr: any[]
+): any[] => arr.map(mapper);
 
 const mapObject = (mapper: (val: any, index: number) => any) => (
     obj: object
@@ -15,7 +16,10 @@ const mapObject = (mapper: (val: any, index: number) => any) => (
     }, {});
 };
 
-const map = <T>(mapper: (t: T) => T, data: T) => {
+const map = (
+    mapper: (val: any, index?: number) => any,
+    data: any[] | object
+) => {
     if (Array.isArray(data)) {
         return mapArray(mapper)(data);
     }
@@ -27,4 +31,4 @@ const map = <T>(mapper: (t: T) => T, data: T) => {
     return data;
 };
 
-export default curry(map);
+export default curry2(map);

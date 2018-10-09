@@ -1,7 +1,10 @@
-import curry from './utils/curry';
+import { curry2 } from './utils/curry';
 import isObj from './utils/isObj';
 
-const filterObj = <T>(pred: (t: T) => boolean, obj: T) => {
+const filterObj = (
+    pred: (val: any, index?: number) => boolean,
+    obj: object
+) => {
     return Object.keys(obj).reduce((acc, key) => {
         const item = obj[key];
         const result = pred(item);
@@ -17,7 +20,10 @@ const filterObj = <T>(pred: (t: T) => boolean, obj: T) => {
     }, {});
 };
 
-const filter = <T>(pred: (d: T) => boolean, data: T) => {
+const filter = (
+    pred: (val: any, index?: number) => boolean,
+    data: object | any[]
+) => {
     if (Array.isArray(data)) {
         return data.filter(pred);
     }
@@ -29,4 +35,4 @@ const filter = <T>(pred: (d: T) => boolean, data: T) => {
     return data;
 };
 
-export default curry(filter);
+export default curry2(filter);

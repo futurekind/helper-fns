@@ -1,6 +1,6 @@
-import curry from './utils/curry';
+import { curry2 } from './utils/curry';
 
-const compose = <T>(fns: Function[], data: T) => {
+const compose = (fns: Function[], data: object | any[]) => {
     let d = data;
     for (let i = fns.length - 1; i >= 0; i--) {
         const fn = fns[i];
@@ -10,4 +10,4 @@ const compose = <T>(fns: Function[], data: T) => {
     return d;
 };
 
-export default curry(compose);
+export default curry2(compose);
