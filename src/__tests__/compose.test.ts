@@ -2,6 +2,7 @@ import compose from '../compose';
 import map from '../map';
 import filter from '../filter';
 import sort from '../sort';
+import fold from '../fold';
 
 describe('compose', () => {
     it('composes functions', () => {
@@ -18,11 +19,15 @@ describe('compose', () => {
             return 0;
         };
 
+        const toStr = (acc, val) =>
+            acc.length === 0 ? `${val} stirbt bald` : acc;
+        const sayIt = fold(toStr, '');
+
         const resuls = compose(
-            [map(plainName), filter(isOld), sort(sortByAgeDesc)],
+            [sayIt, map(plainName), filter(isOld), sort(sortByAgeDesc)],
             data
         );
 
-        expect(resuls).toEqual(['John', 'Max']);
+        expect(resuls).toBe('John stirbt bald');
     });
 });
