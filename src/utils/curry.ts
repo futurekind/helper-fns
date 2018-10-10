@@ -4,7 +4,7 @@ export interface CurriedFunction2<T1, T2, R> {
     (fn: T1, data: T2): R;
 }
 
-interface CurriedFunction3<T1, T2, T3, R> {
+export interface CurriedFunction3<T1, T2, T3, R> {
     (fn1: T1): CurriedFunction2<T2, T3, R>;
     (fn1: T1, fn2: T2): (data: T3) => R;
     (fn1: T1, fn2: T2, data: T3): R;
