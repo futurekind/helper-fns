@@ -9,7 +9,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-push": "npm run build"
+            "pre-push": "npm run build && git add . && git commit -m 'Adding lib'"
         }
     },
     "author": "Fabian Trinler <f.trinler@gmail.com>",
