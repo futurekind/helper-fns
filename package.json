@@ -7,7 +7,7 @@
         "test": "jest --watch",
         "build": "rm -rf lib && tsc"
     },
-    "husky": {
+    "xhusky": {
         "hooks": {
             "pre-push": "npm run build && git add . && git commit -m 'Building lib'"
         }
@@ -16,7 +16,6 @@
     "license": "ISC",
     "devDependencies": {
         "@types/jest": "^23.3.3",
-        "husky": "^1.1.2",
         "jest": "^23.6.0",
         "ts-jest": "^23.10.3",
         "typescript": "^3.1.1"
