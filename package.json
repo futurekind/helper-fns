@@ -7,11 +7,6 @@
         "test": "jest --watch",
         "build": "rm -rf lib && tsc"
     },
-    "xhusky": {
-        "hooks": {
-            "pre-push": "npm run build && git add . && git commit -m 'Building lib'"
-        }
-    },
     "author": "Fabian Trinler <f.trinler@gmail.com>",
     "license": "ISC",
     "devDependencies": {
