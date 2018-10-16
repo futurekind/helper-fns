@@ -1,0 +1,9 @@
+export { default as compose } from './compose';
+export { default as either } from './either';
+export { default as filter } from './filter';
+export { default as fold } from './fold';
+export { default as get } from './get';
+export { default as identity } from './identity';
+export { default as map } from './map';
+export { default as pipe } from './pipe';
+export { default as sort } from './sort';
